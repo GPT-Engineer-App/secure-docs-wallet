@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Container, Text, VStack, HStack, Button, Input, Box, IconButton, useToast, Tag, TagLabel, TagCloseButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Select, Input as ChakraInput } from "@chakra-ui/react";
+import { Container, Text, VStack, HStack, Button, Input, Box, IconButton, useToast, Tag, TagLabel, TagCloseButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Select, Input as ChakraInput, Link } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { FaPlus, FaTrash, FaShareAlt } from "react-icons/fa";
 
 const Index = () => {
@@ -72,7 +73,11 @@ const Index = () => {
                 )}
               </Box>
               <HStack spacing={2}>
-                <IconButton aria-label="Compartilhar" icon={<FaShareAlt />} size="sm" />
+                <Link as={RouterLink} to={`/view/${index}`}>
+                  <Button size="sm" colorScheme="blue">
+                    Visualizar
+                  </Button>
+                </Link>
                 <IconButton aria-label="Deletar" icon={<FaTrash />} size="sm" onClick={() => handleDeleteDocument(index)} />
               </HStack>
             </HStack>
