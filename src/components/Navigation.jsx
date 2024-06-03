@@ -1,20 +1,22 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Flex, Button } from "@chakra-ui/react";
 
-const Navigation = () => {
+function Navigation() {
   return (
-    <Box bg="brand.600" p={4}>
+    <Box bg="teal.500" p={4}>
       <Flex justify="space-between">
         <Button as={Link} to="/" colorScheme="teal" variant="ghost">
           Home
         </Button>
-        <Button as={Link} to="/view/1" colorScheme="teal" variant="ghost">
-          View Document
+        <Button as={Link} to="/seus-documentos" colorScheme="teal" variant="ghost">
+          Seus Documentos
+        </Button>
+        <Button as={Link} to="/usuario" colorScheme="teal" variant="ghost">
+          Usuário
         </Button>
       </Flex>
     </Box>
   );
-};
+}
 
 export default Navigation;
