@@ -4,7 +4,7 @@ import { Box, Flex, Button } from "@chakra-ui/react";
 
 const Navigation = () => {
   return (
-    <Box bg="teal.500" p={4}>
+    <Box bg="brand.600" p={4}>
       <Flex justify="space-between">
         <Button as={Link} to="/" colorScheme="teal" variant="ghost">
           Home
