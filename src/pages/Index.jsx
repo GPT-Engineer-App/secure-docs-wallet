@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { Container, Text, VStack, HStack, Button, Input, Box, IconButton, useToast, Tag, TagLabel, TagCloseButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Select } from "@chakra-ui/react";
+import { Container, Text, VStack, HStack, Button, Input, Box, IconButton, useToast, Tag, TagLabel, TagCloseButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, FormControl, FormLabel, Select, Input as ChakraInput } from "@chakra-ui/react";
 import { FaPlus, FaTrash, FaShareAlt } from "react-icons/fa";
 
 const Index = () => {
   const [documents, setDocuments] = useState([]);
   const [newDoc, setNewDoc] = useState({ name: "", category: "" });
+  const [file, setFile] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toast = useToast();
 
   const handleAddDocument = () => {
     if (newDoc.name && newDoc.category) {
-      setDocuments([...documents, newDoc]);
+      setDocuments([...documents, { ...newDoc, file }]);
       setNewDoc({ name: "", category: "" });
+      setFile(null);
       setIsModalOpen(false);
       toast({
         title: "Documento adicionado.",
@@ -58,6 +60,16 @@ const Index = () => {
                 <Tag size="sm" colorScheme="blue" mt={1}>
                   <TagLabel>{doc.category}</TagLabel>
                 </Tag>
+                {doc.file && (
+                  <Tag size="sm" colorScheme="green" mt={1}>
+                    <TagLabel>{doc.file.name}</TagLabel>
+                  </Tag>
+                )}
+                {doc.file && (
+                  <Tag size="sm" colorScheme="green" mt={1}>
+                    <TagLabel>{doc.file.name}</TagLabel>
+                  </Tag>
+                )}
               </Box>
               <HStack spacing={2}>
                 <IconButton aria-label="Compartilhar" icon={<FaShareAlt />} size="sm" />
@@ -77,6 +89,10 @@ const Index = () => {
             <FormControl id="doc-name" isRequired>
               <FormLabel>Nome do Documento</FormLabel>
               <Input value={newDoc.name} onChange={(e) => setNewDoc({ ...newDoc, name: e.target.value })} />
+            </FormControl>
+            <FormControl id="doc-file" isRequired mt={4}>
+              <FormLabel>Arquivo</FormLabel>
+              <ChakraInput type="file" onChange={(e) => setFile(e.target.files[0])} />
             </FormControl>
             <FormControl id="doc-category" isRequired mt={4}>
               <FormLabel>Categoria</FormLabel>
