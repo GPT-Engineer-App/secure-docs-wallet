@@ -14,6 +14,12 @@ function Navigation() {
         <Button as={Link} to="/usuario" colorScheme="teal" variant="ghost">
           Usuário
         </Button>
+        <Button as={Link} to="/dashboard" colorScheme="teal" variant="ghost">
+          Dashboard
+        </Button>
+        <Button as={Link} to="/login" colorScheme="teal" variant="ghost">
+          Login
+        </Button>
       </Flex>
     </Box>
   );

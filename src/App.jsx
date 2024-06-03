@@ -4,6 +4,8 @@ import ViewDocument from "./pages/ViewDocument.jsx";
 import SeusDocumentos from "./pages/SeusDocumentos.jsx";
 import Usuario from "./pages/Usuario.jsx";
 import Navigation from "./components/Navigation.jsx";
+import Login from "./pages/Login.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 import VerDocumentos from "./pages/VerDocumentos.jsx";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/seus-documentos" element={<SeusDocumentos />} />
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/ver-documentos" element={<VerDocumentos />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
